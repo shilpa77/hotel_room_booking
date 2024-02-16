@@ -6,6 +6,8 @@ class Api::V1::HotelsController < ApplicationController
 
   def show
     hotel = Hotel.find(params[:id])
-    render json: hotel
+    hotel_data = hotel.as_json
+    hotel_data[:rooms] = hotel.rooms
+    render json: hotel_data
   end
 end

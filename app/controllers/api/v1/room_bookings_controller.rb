@@ -1,5 +1,5 @@
 class Api::V1::RoomBookingsController < ApplicationController
-  before_action :set_room, only: %i[update show destroy]
+  before_action :set_user_room, only: %i[update show destroy]
 
   def index
     rooms = UserRoom.all.order(created_at: :desc)
@@ -36,7 +36,7 @@ class Api::V1::RoomBookingsController < ApplicationController
   private
 
   def booking_params
-    params.permit(:hotel_id, :check_in, :check_out, :user_id, :room_count)
+    params.require(:booking).permit(:hotel_id, :check_in, :check_out, :user_id, :room_count)
   end
 
   def room_params

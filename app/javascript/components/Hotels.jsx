@@ -29,7 +29,7 @@ const Hotels = () => {
         <div className="card-body">
           <h5 className="card-title">{hotel.name}</h5>
           <Link to={`/hotel/${hotel.id}`} className="btn custom-button">
-            View Hotel
+            Book Rooms
           </Link>
         </div>
       </div>

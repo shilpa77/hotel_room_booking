@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :hotels
-      resources :room_bookings
+      # resources :hotels
+      # resources :room_bookings
+      get 'room_bookings/index'
+      post 'room_bookings/create'
+      get 'room_bookings/show/:id', to: 'room_bookings#show'
+      patch 'room_bookings/update/:id', to: 'room_bookings#show'
+      delete 'room_bookings/destroy/:id', to: 'room_bookings#destroy'
+
+      get 'hotels/index'
+      get 'hotels/show/:id', to: 'hotels#show'
     end
   end
   root 'home#show'
